@@ -1,0 +1,44 @@
+{% extends "AppBundle:Layouts:layout.html.twig"%}
+{% block content%}
+    
+		<!-- Project One -->
+				{% for noticia in noticias %}
+        <div class="row">
+            <div class="col-md-7">
+                <a href="#">
+                    <img class="img-responsive" src="{{noticia.url_media}}" alt="{{noticia.titulo}}" width=600 height=250>
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>{{noticia.titulo}}</h3>
+                <h4>{{noticia.fecha_creacion}}</h4>
+                <p>{{noticia.resumen}}</p>
+                
+								<p>
+									<img src="{{asset('images/like.png')}}" width=20 height=20 />&nbsp;{{noticia.social_networks.num_likes}}
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<img src="{{asset('images/comments.jpg')}}" width=20 height=20 />&nbsp;{{noticia.social_networks.num_comments}}
+									<br><br>
+									<a href="whatsapp://send?text={{noticia.url_share}}" target="_blank">
+									 <img src="{{asset('images/wa.png')}}" width=30 height=30 />
+									</a> 
+									&nbsp;
+									<a href="http://twitter.com/share?url={{noticia.url_share}}&text={{noticia.titulo}}" target="_blank">
+									 <img src="{{asset('images/tw.png')}}" width=30 height=30 />
+									</a>
+									&nbsp;
+									<a href="http://www.facebook.com/sharer.php?u={{noticia.url_share}}&t={{noticia.titulo}}" target="_blank">
+									 <img src="{{asset('images/fb.png')}}" width=30 height=30 />
+									</a>
+									<br><br>
+									<a class="btn btn-primary" href="{{path('app_details',{ 'id': noticia.id })}}">Detalle <span class="glyphicon glyphicon-chevron-right"></span></a>
+								</p>
+            </div>
+        </div>
+				
+				 <hr>
+				{% endfor %}
+        <!-- /.row -->
+         
+    
+{% endblock %}
