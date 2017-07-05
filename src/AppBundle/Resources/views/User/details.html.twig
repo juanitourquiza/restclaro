@@ -4,13 +4,14 @@
 		<div class="row">
             <div class="col-md-7">
                 <a href="#">
-                    <img class="img-responsive" src="{{noticia.url_media}}" alt="{{noticia.titulo}}" width=600 height=250>
+                    <img class="img-responsive" src="{{noticia.url_media}}" alt="{{noticia.titulo}}" width=600 height=250 >
                 </a>
+				<p>{{noticia.html}}</p>
             </div>
             <div class="col-md-5">
                 <h3>{{noticia.titulo}}</h3>
                 <h4>{{noticia.resumen}}</h4>
-                <p>{{noticia.html}}</p>
+                
                 
 								<p>
 									<img src="{{asset('images/like.png')}}" width=20 height=20 />&nbsp;{{noticia.social_networks.num_likes}}
